@@ -3,9 +3,24 @@
 * [Documentation](https://docs.rs/binary_search_tree/)
 * [Crate](https://crates.io/crates/binary_search_tree)
 
-A classic Binary Search Tree written in Rust.
 
-In this implementation, each node of the binary tree contains only one useful value. To order the nodes, the elements must implement the ```Ord``` trait.
+## Description
+
+<p>A classic Binary Search Tree written in Rust.</p>
+
+In this implementation, each node of the binary tree contains only one useful value. To order the nodes, the elements must implement the ```Ord``` trait
+
+## Usage
+
+As a library
+```rust
+extern crate binary_search_tree;
+
+use binary_search_tree::BinarySearchTree;
+```
+
+
+## Opportunities
 
 The BinarySearchTree struct provides the following methods: 
 * [Viewing the root element](https://docs.rs/binary_search_tree/0.2.0/binary_search_tree/struct.BinarySearchTree.html#method.root)
