@@ -40,6 +40,7 @@ The BinarySearchTree struct provides the following methods:
 * [Viewing values in the tree in ascending order](https://docs.rs/binary_search_tree/0.2.0/binary_search_tree/struct.BinarySearchTree.html#method.sorted_vec)
 * [Moving the tree to a sorted vector](https://docs.rs/binary_search_tree/0.2.0/binary_search_tree/struct.BinarySearchTree.html#method.into_sorted_vec)
 * [Creating a tree with elements from an iterator](https://docs.rs/binary_search_tree/0.2.0/binary_search_tree/struct.BinarySearchTree.html#method.from_iter)
+* [Extending the tree with elements from the iterator](https://docs.rs/binary_search_tree/0.2.0/binary_search_tree/struct.BinarySearchTree.html#method.extend)
 * [Inorder traversal](https://docs.rs/binary_search_tree/0.2.0/binary_search_tree/struct.BinarySearchTree.html#method.inorder)
 * [Preorder traversal](https://docs.rs/binary_search_tree/0.2.0/binary_search_tree/struct.BinarySearchTree.html#method.preorder)
 * [Postorder traversal](https://docs.rs/binary_search_tree/0.2.0/binary_search_tree/struct.BinarySearchTree.html#method.postorder)
