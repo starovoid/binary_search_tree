@@ -8,7 +8,7 @@
 
 <p>A classic Binary Search Tree written in Rust.</p>
 
-In this implementation, each node of the binary tree contains only one useful value. To order the nodes, the elements must implement the ```Ord``` trait
+In this implementation, each node of the binary tree contains only one useful value. To order the nodes, the elements must implement the ```Ord``` trait.
 
 ## Usage
 
