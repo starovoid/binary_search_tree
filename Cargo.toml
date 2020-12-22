@@ -1,16 +1,13 @@
 [package]
 name = "binary_search_tree"
-version = "0.2.0"
+version = "0.2.2"
 authors = ["PrototypeRailGun <52821033+PrototypeRailGun@users.noreply.github.com>"]
 edition = "2018"
 license = "MIT"
 repository = "https://github.com/PrototypeRailGun/binary_search_tree"
 homepage = "https://github.com/PrototypeRailGun/binary_search_tree"
 description = "Binary search tree implementation"
-documentation = "https://docs.rs/binary_search_tree/"
 readme = "README.md"
 
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
