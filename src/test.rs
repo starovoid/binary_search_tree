@@ -1,6 +1,7 @@
 use crate::BinarySearchTree;
 use std::iter::FromIterator;
 
+
 #[test]
 fn basics() {
     let mut tree: BinarySearchTree<i32> = BinarySearchTree::new();
@@ -246,6 +247,18 @@ fn inorder() {
 
     let tree: BinarySearchTree<i32> = vec![7, 1, 0, 4, 2, 5, 3, 6, 8].into_iter().collect();
     assert_eq!(tree.inorder().collect::<Vec<&i32>>(), vec![&0, &1, &2, &3, &4, &5, &6, &7, &8]);
+    assert_eq!(tree.sorted_vec(), vec![&0, &1, &2, &3, &4, &5, &6, &7, &8]);
+}
+#[test]
+fn reverse_order() {
+    let tree: BinarySearchTree<i32> = BinarySearchTree::new();
+    assert_eq!(tree.reverse_order().collect::<Vec<&i32>>().len(), 0);
+
+    let tree: BinarySearchTree<i32> = BinarySearchTree::from_iter(vec![0].into_iter());
+    assert_eq!(tree.reverse_order().collect::<Vec<&i32>>(), vec![&0]);
+
+    let tree: BinarySearchTree<i32> = vec![7, 1, 0, 4, 2, 5, 3, 6, 8].into_iter().collect();
+    assert_eq!(tree.reverse_order().collect::<Vec<&i32>>(), vec![&8, &7, &6, &5, &4, &3, &2, &1, &0]);
     assert_eq!(tree.sorted_vec(), vec![&0, &1, &2, &3, &4, &5, &6, &7, &8]);
 }
 
