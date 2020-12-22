@@ -557,6 +557,31 @@ impl<T: Ord> BinarySearchTree<T> {
         }
     }
     
+    /// Reverse order traverse iterator of binary search tree.
+    /// 
+    /// This iterator traverses the elements of the tree in descending order.
+    /// 
+    /// # Examples
+    /// 
+    /// ```
+    /// use binary_search_tree::BinarySearchTree;
+    /// 
+    /// let tree: BinarySearchTree<i32> = vec![5, 7, 3, 4, 8, 6, 1].into_iter().collect();
+    /// // Now we have a tree that looks like this:
+    /// //                  5
+    /// //               3     7
+    /// //              1 4   6 8
+    /// 
+    /// // And we should get the following sequence of its elements: 8, 7, 6, 5, 4, 3, 1
+    /// assert_eq!(tree.reverse_order().collect::<Vec<&i32>>(), vec![&8, &7, &6, &5, &4, &3, &1]);
+    /// ```
+    pub fn reverse_order(&self) -> ReverseOrderTraversal<T> {
+        ReverseOrderTraversal {
+            stack: Vec::new(),
+            current: self.root.0.as_ref(),
+        }
+    }
+    
     /// Preorder traverse iterator of binary search tree.
     /// 
     /// # Examples
@@ -604,7 +629,7 @@ impl<T: Ord> BinarySearchTree<T> {
     }
     
     /// Level order binary tree traversal.
-    /// /// # Examples
+    /// # Examples
     /// 
     /// ```
     /// use binary_search_tree::BinarySearchTree;
@@ -878,6 +903,11 @@ pub struct InorderTraversal<'a, T: 'a + Ord> {
     current: Option<&'a Box<Node<T>>>,
 }
 
+pub struct ReverseOrderTraversal<'a, T: 'a + Ord> {
+    stack: Vec<Option<&'a Box<Node<T>>>>,
+    current: Option<&'a Box<Node<T>>>,
+}
+
 pub struct PreorderTraversal<'a, T: 'a + Ord> {
     stack: Vec<Option<&'a Box<Node<T>>>>,
     current: Option<&'a Box<Node<T>>>,
@@ -906,6 +936,28 @@ impl<'a, T: 'a + Ord> Iterator for InorderTraversal<'a, T> {
                     let current = node.unwrap();
                     let elem = &current.value;
                     self.current = current.right.0.as_ref();
+                    return Some(elem);
+                } else {
+                    return None;
+                }
+            }
+        }
+    }
+}
+
+impl<'a, T: 'a + Ord> Iterator for ReverseOrderTraversal<'a, T> {
+    type Item = &'a T;
+    
+    fn next(&mut self) -> Option<&'a T> {
+        loop {
+            if let Some(current) = self.current {
+                self.stack.push(self.current);
+                self.current = current.right.0.as_ref();
+            } else {
+                if let Some(node) = self.stack.pop() {
+                    let current = node.unwrap();
+                    let elem = &current.value;
+                    self.current = current.left.0.as_ref();
                     return Some(elem);
                 } else {
                     return None;
