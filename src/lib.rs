@@ -394,7 +394,7 @@ impl<T: Ord> BinarySearchTree<T> {
     /// 
     /// assert_eq!(tree.sorted_vec(), vec![&10, &15, &18, &25, &35, &40, &45]);
     /// 
-    /// // and predecessor of 25 will be element 35.
+    /// // and predecessor of 25 will be element 18.
     /// assert_eq!(tree.predecessor(&25), Some(&18));
     /// 
     /// assert_eq!(tree.predecessor(&40), Some(&35));
